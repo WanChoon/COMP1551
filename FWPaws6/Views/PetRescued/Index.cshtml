@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FWPaws6.Models.PetRescued>
+
+@{
+    ViewBag.Title = "Pet Rescued";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pet Rescued</h2>
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+    <tr>
+        <th>Pet Rescued Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var petRescued in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(petRescued.PetName,"Details","PetRescued", new { id = petRescued.Id},null)</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

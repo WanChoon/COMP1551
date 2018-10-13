@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FWPaws6.Models.Rescuer>
+
+@{
+    ViewBag.Title = "Rescuer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rescuer</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any rescuer yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Rescuer Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var rescuer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(rescuer.Name, "Details", "Rescuer", new { id = rescuer.Id }, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
